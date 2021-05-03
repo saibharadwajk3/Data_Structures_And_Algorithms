@@ -1,0 +1,5 @@
+3)Data types
+
+Be Careful!Bare Shoudn't Ingest a Large Furry Dog.
+
+Bool(system dependent),Char(2*8),Byte(1*8),Short(2*8),Int(4*8),Long(8*8),Float(4*8),Double(8*8)

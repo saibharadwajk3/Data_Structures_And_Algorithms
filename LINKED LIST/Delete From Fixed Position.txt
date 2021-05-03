@@ -1,0 +1,21 @@
+ //delete from fixed
+    
+    public void DelFix(int pos,Node head){
+        
+        if(pos==1){
+            head=head.next;
+        }else{
+            
+            Node prev=head;
+            int count=1;
+            while(count<pos-1){
+                prev=prev.next;
+                count++;
+            }
+            
+            Node curr=prev.next;
+            prev.next=curr.next;
+        }
+        
+    }
+    

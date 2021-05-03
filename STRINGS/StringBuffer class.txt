@@ -1,0 +1,35 @@
+StringBuffer class
+Java StringBuffer class is used to create mutable (modifiable) string. The StringBuffer class in java is same as String class except it is mutable i.e. it can be changed.
+
+public class MyClass {
+    public static void main(String args[]) {
+        
+        StringBuffer sb =new StringBuffer("arjun");
+        sb.append(" "+"bharadwaj");
+        System.out.println(sb);
+        System.out.println(sb.insert(5,"na"));
+        System.out.println(sb.replace(0,8,"vijay "));
+         System.out.println(sb.delete(0,6));
+         System.out.println(sb.reverse());
+         
+         //capacity
+         StringBuffer sb1=new StringBuffer();  
+System.out.println(sb1.capacity());//default 16  
+sb1.append("iyer"+"\n");  
+System.out.println(sb1.capacity());//now 16  
+sb1.append("venugopal iyer"+"\n");  
+System.out.println(sb1.capacity());
+sb1.append("chinna swamy venugopal iyer"+"\n");  
+System.out.println(sb1.capacity());
+sb1.append("chinna swamy muthu swamy venugopal iyer"+"\n");  
+System.out.println(sb1.capacity());
+
+System.out.println(sb1);
+
+//ensure capacity
+sb1.ensureCapacity(130);
+System.out.println(sb1.capacity());//current capacity i.e 142>130 so no change prints 142
+sb1.ensureCapacity(500);//current capacity i.e 142<500 so  changes capacity to 500 and prints the same
+System.out.println(sb1.capacity());
+    }
+}

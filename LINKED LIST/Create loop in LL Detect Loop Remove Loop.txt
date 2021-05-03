@@ -1,0 +1,109 @@
+2)create loop in LL,check if LL has loop,print start of loop,remove looop.
+ans)public class SinglyLinkedList {
+    
+    //declare head and tail which are initialized to null autometically;
+     public  Node head;
+    
+       //Node class(blue print to create node)
+     
+     class Node{
+         
+         int data;
+         Node next;
+       //Node constructor 
+         public Node(int data){
+             this.data=data;
+             this.next=null;
+         }
+     }
+     
+     public void display(Node head){
+        
+        if(head==null){
+            System.out.println("empty list");
+        }
+        
+        Node current=head;
+        while(current!=null){
+            System.out.print(current.data + "-->");
+            current=current.next;
+        }
+        System.out.println("null");
+    }
+     
+     public void createloopInLinkedList(){
+         Node first=new Node(1);
+         Node second=new Node(2);
+         Node third=new Node(3);
+         Node fourth=new Node(4);
+         Node fifth=new Node(5);
+         Node sixth=new Node(6);
+         
+         head=first;
+         first.next=second;
+         second.next=third;
+         third.next=fourth;
+         fourth.next=fifth;
+         fifth.next=sixth;
+         sixth.next=third;
+         
+         return;
+         
+     }
+     
+     public Node findStart(Node s){
+         Node temp=head;
+         
+         while(s!=temp){
+             temp=temp.next;
+             s=s.next;
+         }
+         return temp;
+         
+     }
+     
+     public void removeloop(Node s){
+         Node temp=head;
+         while(s.next!=temp.next){
+             temp=temp.next;
+             s=s.next;
+         }
+         s.next=null;
+         
+     }
+     
+     public void containsloop(){
+         Node f=head;
+         Node s=head;
+         
+         while(f!=null && f.next!=null){
+             f=f.next.next;
+             s=s.next;
+             if(s==f){
+                 //return true;               return type bool
+                //return findStart(s);        return type node 
+                 removeloop(s);               //no return
+             }
+         }
+         //return false;
+        // return null;
+        return;
+         
+}
+     
+     public static void main(String args[]) {
+      
+      SinglyLinkedList s=new SinglyLinkedList();
+      s.createloopInLinkedList();
+     //System.out.println(s.containsloop())
+    // Node temp=s.containsloop();
+    // System.out.println(temp.data);
+     
+     s.containsloop();
+     s.display(s.head);
+     
+     
+     
+     }     
+     
+}

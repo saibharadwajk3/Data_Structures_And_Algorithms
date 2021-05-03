@@ -1,0 +1,266 @@
+1)creating a binary tree,recursive and iterative pre-order traversals,
+import java.util.*;
+public class BinaryTree{
+   //instance variable 
+private TreeNode root;
+  
+  
+//inner class  for TreeNode creation (blue print)  
+private class TreeNode{
+    //instance variables 
+    private TreeNode left;
+    private TreeNode right;
+    private int data;
+    //constructor 
+    TreeNode(int data){
+      this.data=data;  
+    }
+}
+
+//create and link tree nodes(creating objects)
+private void  CreateTree(){
+    // TreeNode objects
+    TreeNode first=new TreeNode(1);
+    TreeNode second=new TreeNode(12);
+    TreeNode third=new TreeNode(67);
+    TreeNode fourth=new TreeNode(33);
+    TreeNode fifth=new TreeNode(96);
+    TreeNode sixth=new TreeNode(99);
+    
+    root=first;
+    
+    first.left=second;
+    first.right=third;
+    
+    second.left=fourth;
+    second.right=fifth;
+    
+    third.left=sixth;
+    
+}
+
+//recursive pre-order traversal of a binary tree
+
+public void PreOrder(TreeNode root ){
+    
+    if(root==null){
+        return;
+    }
+    System.out.print(root.data + " ");
+    PreOrder(root.left);
+    PreOrder(root.right);
+}
+
+
+
+//iterative pre order traversal of a binary tree
+
+public void IterativePreOrder(TreeNode root){
+    if(root==null){
+        return;
+    }
+    System.out.println();
+    System.out.println("Iterative pre-order:");
+  
+    Stack<TreeNode> st=new Stack<TreeNode>();
+    
+    st.push(root);
+    while(!st.isEmpty()){
+        TreeNode temp=st.pop();
+        System.out.print(temp.data +" ");
+        if(temp.right!=null){
+             st.push(temp.right);
+         }
+         
+         if(temp.left!=null){
+             st.push(temp.left);
+         }
+         
+         
+    }
+}
+//recursive in-order traversal of a binary tree
+public void inOrder(TreeNode root ){
+    
+    if(root==null){
+        return;
+    }
+    
+    inOrder(root.left);
+    System.out.print(root.data + " ");
+    inOrder(root.right);
+}
+
+//iterative in order traversal of a binary tree
+public void IterativeinOrder(TreeNode root ){
+    System.out.println();
+    System.out.println("iterative in-order:");
+    if(root==null){
+        return;
+    }
+  Stack<TreeNode> st=new Stack<TreeNode>();
+      
+    TreeNode temp=root;
+    
+    while(!st.isEmpty() || temp!=null){
+        if(temp!=null){
+            st.push(temp);
+            temp=temp.left;
+        }else{
+            temp=st.pop();
+            System.out.print(temp.data+" ");
+            temp=temp.right;
+        }
+    }
+}
+//recursive post-order traversal of a binary tree
+public void postOrder(TreeNode root ){
+    
+    if(root==null){
+        return;
+    }
+    
+    postOrder(root.left);
+    postOrder(root.right);
+    System.out.print(root.data + " ");
+}
+//iterative post order traversal of a binary tree
+
+//(not clear and not intrested)
+
+public void IterativepostOrder(TreeNode root ){
+     System.out.println();
+    System.out.println("iterative post-order:");
+    TreeNode current=root;
+    Stack<TreeNode> st=new Stack<TreeNode>();
+    
+    while(current!=null || !st.isEmpty()){
+        if(current!=null){
+            st.push(current);
+            current=current.left;
+        }else{
+            
+            TreeNode temp=st.peek().right;
+            if(temp==null){
+                temp=st.pop();
+                System.out.print(temp.data +" ");
+                
+                while(!st.isEmpty()&& temp==st.peek().right){
+                    temp=st.pop();
+                    System.out.print(temp.data +" ");
+                }
+            }else{
+                current=temp;
+            }
+        }
+    }
+    
+}
+
+
+
+
+
+
+//level order traversal of a binary tree
+public void levelOrder(TreeNode root){
+    
+    if(root==null){
+        return;
+    }
+    
+  Queue<TreeNode> queue = new LinkedList<>(); 
+    
+  queue.add(root);
+    while(!queue.isEmpty()){
+        TreeNode temp=queue.poll();
+         System.out.print(temp.data + " ");
+         
+         if(temp.left!=null){
+             queue.add(temp.left);
+         }
+          if(temp.right!=null){
+             queue.add(temp.right);
+         }
+    }
+
+}
+
+//find max in binary tree
+
+public int MaxOfBinaryTree(TreeNode root){
+    
+    if(root==null){
+        return Integer.MIN_VALUE;
+    }
+    
+  int result=root.data;
+   
+  int left=MaxOfBinaryTree(root.left);
+  int right=MaxOfBinaryTree(root.right);
+   
+  if(left>result){result=left;}
+  if(right>result){result=right;}
+   
+    return result;
+    
+}
+
+//find min in binary tree
+
+public int MinOfBinaryTree(TreeNode root){
+    
+    if(root==null){
+        return Integer.MAX_VALUE;
+    }
+    
+  int result=root.data;
+   
+  int left=MinOfBinaryTree(root.left);
+  int right=MinOfBinaryTree(root.right);
+   
+  if(left<result){result=left;}
+  if(right<result){result=right;}
+   
+    return result;
+    
+}
+//dreiver code
+
+public static void main(String [] args){
+    
+    BinaryTree bt=new BinaryTree();
+    bt.CreateTree();
+    System.out.println("recursive pre-order:");
+    bt.PreOrder(bt.root);
+    bt.IterativePreOrder(bt.root);
+      System.out.println();
+    
+      System.out.println();
+    System.out.println("recursive in-order:");
+     bt.inOrder(bt.root);
+     bt.IterativeinOrder(bt.root);
+     System.out.println();
+    
+      System.out.println();
+     System.out.println("recursive post-order:");
+    bt.postOrder(bt.root);
+    bt. IterativepostOrder(bt.root);
+      System.out.println();
+      
+    
+      System.out.println();
+    System.out.println("level-order:");
+    bt.levelOrder(bt.root);
+      System.out.println();
+      
+    System.out.println();
+     System.out.println();
+      System.out.println("min value:" +  bt.MinOfBinaryTree(bt.root));
+       System.out.println("max value:" +  bt.MaxOfBinaryTree(bt.root));
+  
+    
+    
+    
+}
+}

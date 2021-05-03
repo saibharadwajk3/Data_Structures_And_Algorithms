@@ -1,0 +1,42 @@
+//recursive post-order traversal of a binary tree
+public void postOrder(TreeNode root ){
+    
+    if(root==null){
+        return;
+    }
+    
+    postOrder(root.left);
+    postOrder(root.right);
+    System.out.print(root.data + " ");
+}
+//iterative post order traversal of a binary tree
+
+
+public void IterativepostOrder(TreeNode root ){
+     System.out.println();
+    System.out.println("iterative post-order:");
+    TreeNode current=root;
+    Stack<TreeNode> st=new Stack<TreeNode>();
+    
+    while(current!=null || !st.isEmpty()){
+        if(current!=null){
+            st.push(current);
+            current=current.left;
+        }else{
+            
+            TreeNode temp=st.peek().right;
+            if(temp==null){
+                temp=st.pop();
+                System.out.print(temp.data +" ");
+                
+                while(!st.isEmpty()&& temp==st.peek().right){
+                    temp=st.pop();
+                    System.out.print(temp.data +" ");
+                }
+            }else{
+                current=temp;
+            }
+        }
+    }
+    
+}

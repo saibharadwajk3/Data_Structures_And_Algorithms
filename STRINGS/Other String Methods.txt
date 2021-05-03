@@ -1,0 +1,367 @@
+Java String Methods
+1)String charAt()
+
+example:
+
+public class CharAtExample{  
+public static void main(String args[]){  
+String name="javatpoint";  
+char ch=name.charAt(4);//returns the char value at the 4th index  
+System.out.println(ch);  
+}}
+
+    public class CharAtExample4 {  
+        public static void main(String[] args) {  
+            String str = "Welcome to Javatpoint portal";          
+            for (int i=0; i<=str.length()-1; i++) {  
+                if(i%2!=0) {  
+                    System.out.println("Char at "+i+" place "+str.charAt(i));  
+                }  
+            }  
+        }  
+    }  
+2)String compareTo()
+
+    public class CompareToExample2{  
+    public static void main(String args[]){  
+    String s1="hello";  
+    String s2="";  
+    String s3="me";  
+     String s4="vato";
+    System.out.println(s1.compareTo(s2));  
+    System.out.println(s2.compareTo(s3)); 
+     System.out.println(s4.compareTo(s1)); 
+    }}  
+3)String concat()
+    public class ConcatExample3 {  
+        public static void main(String[] args) {  
+            String str1 = "Hello";  
+            String str2 = "Javatpoint";  
+            String str3 = "Reader";  
+            // Concatenating Space among strings  
+            String str4 = str1.concat(" ").concat(str2).concat(" ").concat(str3);  
+            System.out.println(str4);         
+            // Concatenating Special Chars        
+            String str5 = str1.concat("!!!");  
+            System.out.println(str5);         
+            String str6 = str1.concat("@").concat(str2);  
+            System.out.println(str6);  
+        }  
+    }  
+4)String contains()
+    public class ContainsExample2 {  
+        public static void main(String[] args) {  
+            String str = "Hello Javatpoint readers";  
+            boolean isContains = str.contains("Javatpoint");  
+            System.out.println(isContains);  
+            // Case Sensitive  
+            System.out.println(str.contains("javatpoint")); // false  
+        }  
+    }  
+5)String endsWith()
+
+    public class EndsWithExample2 {  
+        public static void main(String[] args) {  
+            String str = "Welcome to Javatpoint.com";  
+            System.out.println(str.endsWith("point"));  
+            if(str.endsWith(".com")) {  
+                System.out.println("String ends with .com");  
+            }else System.out.println("It does not end with .com");  
+        }  
+    }  
+6)String equals()
+mport java.util.ArrayList;  
+public class EqualsExample3 {  
+    public static void main(String[] args) {  
+        String str1 = "Mukesh";  
+        ArrayList<String> list = new ArrayList<>();  
+        list.add("Ravi");   
+        list.add("Mukesh");  
+        list.add("Ramesh");  
+        list.add("Ajay");  
+        for (String str : list) {  
+            if (str.equals(str1)) {  
+                System.out.println("Mukesh is present");  
+            }  
+        }  
+    }  
+}  
+7)equalsIgnoreCase()
+    public class EqualsIgnoreCaseExample{  
+    public static void main(String args[]){  
+    String s1="javatpoint";  
+    String s2="javatpoint";  
+    String s3="JAVATPOINT";  
+    String s4="python";  
+    System.out.println(s1.equalsIgnoreCase(s2));//true because content and case both are same  
+    System.out.println(s1.equalsIgnoreCase(s3));//true because case is ignored  
+    System.out.println(s1.equalsIgnoreCase(s4));//false because content is not same  
+    }}  
+8)String format()
+  public class FormatExample{  
+    public static void main(String args[]){  
+    String name="sonoo";  
+    String sf1=String.format("name is %s",name);  
+    String sf2=String.format("value is %f",32.33434);  
+    String sf3=String.format("value is %32.12f",32.33434);//returns 12 char fractional part filling with 0  
+      
+    System.out.println(sf1);  
+    System.out.println(sf2);  
+    System.out.println(sf3);  
+    }}  
+
+    public class FormatExample3 {  
+        public static void main(String[] args) {          
+            String str1 = String.format("%d", 101);  
+            String str2 = String.format("|%10d|", 101);  // Specifying length of integer  
+            String str3 = String.format("|%-10d|", 101); // Left-justifying within the specified width  
+            String str4 = String.format("|% d|", 101);   
+            String str5 = String.format("|%010d|", 101); // Filling with zeroes  
+            System.out.println(str1);  
+            System.out.println(str2);  
+            System.out.println(str3);  
+            System.out.println(str4);  
+            System.out.println(str5);  
+        }  
+    }  
+9)String getBytes()
+public class StringGetBytesExample2 {  
+    public static void main(String[] args) {  
+        String s1 = "yankiA";  
+        byte[] barr = s1.getBytes();  
+        for(int i=0;i<barr.length;i++){  
+            System.out.println(barr[i]);  
+        }  
+        // Getting string back   
+        String s2 = new String(barr);  
+        System.out.println(s2);  
+    }  
+} 
+10)String getChars()
+
+public class StringGetCharsExample{  
+    public static void main(String args[]){  
+     String str = new String("hello javatpoint how r u");  
+          char[] ch = new char[10];  
+          try{  
+             str.getChars(6, 16, ch, 0); //start,end,array,best begining index 
+             System.out.println(ch);  
+          }catch(Exception ex){System.out.println(ex);}  
+    }}  
+11)String indexOf()
+    public class IndexOfExample{  
+    public static void main(String args[]){  
+    String s1="this is index of example";  
+    //passing substring  
+    int index1=s1.indexOf("is");//returns the index of is substring  
+    int index2=s1.indexOf("index");//returns the index of index substring  
+    System.out.println(index1+"  "+index2);//2 8  
+      
+    //passing substring with from index  
+    int index3=s1.indexOf("is",4);//returns the index of is substring after 4th index  
+    System.out.println(index3);//5 i.e. the index of another is  
+      
+    //passing char value  
+    int index4=s1.indexOf('s');//returns the index of s char value  
+    System.out.println(index4);//3  
+    }}  
+12)String intern()
+
+The java string intern() method returns the interned string. It returns the canonical representation of string.
+
+It can be used to return string from memory, if it is created by new keyword. It creates exact copy of heap string object in string constant pool.
+    public class InternExample2 {  
+        public static void main(String[] args) {          
+            String s1 = "Javatpoint";  
+            String s2 = s1.intern();  
+            String s3 = new String("Javatpoint");  
+            String s4 = s3.intern();          
+            System.out.println(s1==s2); // True  
+            System.out.println(s1==s3); // False  
+            System.out.println(s1==s4); // True       
+            System.out.println(s2==s3); // False  
+            System.out.println(s2==s4); // True        
+            System.out.println(s3==s4); // False          
+        }  
+    }  
+
+
+13)String isEmpty()
+    public class IsEmptyExample2 {  
+        public static void main(String[] args) {  
+            String s1="";    
+            String s2="Javatpoint";             
+            // Either length is zero or isEmpty is true  
+            if(s1.length()==0 || s1.isEmpty())  
+                System.out.println("String s1 is empty");  
+            else System.out.println("s1");        
+            if(s2.length()==0 || s2.isEmpty())  
+                System.out.println("String s2 is empty");  
+            else System.out.println(s2);  
+        }  
+    }  
+14)String join()
+    public class StringJoinExample2 {  
+        public static void main(String[] args) {          
+            String date = String.join("/","25","06","2018");    
+            System.out.print(date);    
+            String time = String.join(":", "12","10","10");  
+            System.out.println(" "+time);  
+        }  
+    }  
+15)String lastIndexOf()
+    public class LastIndexOfExample4 {  
+        public static void main(String[] args) {           
+            String str = "This is last index of example";  
+            int index = str.lastIndexOf("of", 25);  
+            System.out.println(index);  
+            index = str.lastIndexOf("of", 10);  
+            System.out.println(index); // -1, if not found        
+        }  
+    }  
+16)String length()
+    public class LengthExample2 {  
+        public static void main(String[] args) {  
+            String str = "Javatpoint";  
+            if(str.length()>0) {  
+                System.out.println("String is not empty and length is: "+str.length());  
+            }  
+            str = "";  
+            if(str.length()==0) {  
+                System.out.println("String is empty now: "+str.length());  
+            }  
+        }  
+    }  
+17)String replace()
+    public class ReplaceExample3 {  
+        public static void main(String[] args) {  
+            String str = "oooooo-hhhh-oooooo";  
+            String rs = str.replace("h","s"); // Replace 'h' with 's'  
+            System.out.println(rs);  
+            rs = rs.replace("s","h"); // Replace 's' with 'h'  
+            System.out.println(rs);  
+        }  
+    }  
+18)String replaceAll()
+    public class ReplaceAllExample3{  
+    public static void main(String args[]){  
+    String s1="My name is Khan. My name is Bob. My name is Sonoo.";  
+    String replaceString=s1.replaceAll("\\s","");  
+    System.out.println(replaceString);  
+    }}  
+19)String split()
+    public class SplitExample2{  
+public static void main(String args[]){  
+String s1="welcome to split world";  
+System.out.println("returning words:");  
+for(String w:s1.split("\\s",0)){  //split at space,limit in array 
+System.out.println(w);  
+}  
+System.out.println("returning words:");  
+for(String w:s1.split("\\s",1)){  //limit 1 so prints everything in one line
+System.out.println(w);  
+}  
+System.out.println("returning words:");  
+for(String w:s1.split("\\s",3)){  //
+System.out.println(w);  
+}  
+  
+}} 
+20)String startsWith()
+    public class StartsWithExample2 {  
+        public static void main(String[] args) {  
+            String str = "Javatpoint";  
+            System.out.println(str.startsWith("J")); // True  
+            System.out.println(str.startsWith("a")); // False  
+            System.out.println(str.startsWith("a",1)); // True  
+        }  
+    }  
+21)String substring()
+    public class SubstringExample2 {  
+        public static void main(String[] args) {  
+            String s1="Javatpoint";    
+            String substr = s1.substring(0); // Starts with 0 and goes to end  
+            System.out.println(substr);  
+            String substr2 = s1.substring(5,10); // Starts from 5 and goes to 10  
+            System.out.println(substr2);    
+            String substr3 = s1.substring(5,15); // Returns Exception  
+        }  
+    }  
+22)String toCharArray()
+    public class StringToCharArrayExample2 {  
+        public static void main(String[] args) {  
+            String s1 = "Welcome to Javatpoint";  
+            char[] ch = s1.toCharArray();  
+            int len = ch.length;  
+            System.out.println("Char Array length: " + len);  
+            System.out.println("Char Array elements: ");  
+            for (int i = 0; i < len; i++) {  
+                System.out.println(ch[i]);  
+            }  
+        }  
+    }  
+23)String toLowerCase()
+    import java.util.Locale;  
+    public class StringLowerExample2 {  
+        public static void main(String[] args) {  
+            String s = "JAVATPOINT HELLO stRIng";    
+            String eng = s.toLowerCase(Locale.ENGLISH);  
+            System.out.println(eng);  
+            String turkish = s.toLowerCase(Locale.forLanguageTag("tr")); // It shows i without dot  
+            System.out.println(turkish);  
+        }  
+    }  
+24)String toUpperCase()
+    import java.util.Locale;  
+    public class StringUpperExample2 {  
+        public static void main(String[] args) {  
+            String s = "hello string";    
+            String turkish = s.toUpperCase(Locale.forLanguageTag("tr"));  
+            String english = s.toUpperCase(Locale.forLanguageTag("en"));  
+            System.out.println(turkish);//will print I with dot on upper side  
+            System.out.println(english);  
+        }  
+    }  
+25)String trim()
+    public class StringTrimExample {  
+        public static void main(String[] args) {  
+            String s1 ="  hello java string   ";  
+            System.out.println(s1.length());  
+            System.out.println(s1); //Without trim()  
+            String tr = s1.trim();  
+            System.out.println(tr.length());  
+            System.out.println(tr); //With trim()  
+        }  
+    }  
+26)String valueOf()
+    public class StringValueOfExample5 {  
+        public static void main(String[] args) {  
+            boolean b1=true;  
+            byte b2=11;    
+            short sh = 12;  
+            int i = 13;  
+            long l = 14L;  
+            float f = 15.5f;  
+            double d = 16.5d;  
+            char chr[]={'j','a','v','a'};  
+            StringValueOfExample5 obj=new StringValueOfExample5();  
+            String s1 = String.valueOf(b1);    
+            String s2 = String.valueOf(b2);    
+            String s3 = String.valueOf(sh);    
+            String s4 = String.valueOf(i);    
+            String s5 = String.valueOf(l);    
+            String s6 = String.valueOf(f);    
+            String s7 = String.valueOf(d);    
+            String s8 = String.valueOf(chr);    
+            String s9 = String.valueOf(obj);    
+            System.out.println(s1);  
+            System.out.println(s2);  
+            System.out.println(s3);  
+            System.out.println(s4);  
+            System.out.println(s5);  
+            System.out.println(s6);  
+            System.out.println(s7);  
+            System.out.println(s8);  
+            System.out.println(s9);  
+        }  
+    }  

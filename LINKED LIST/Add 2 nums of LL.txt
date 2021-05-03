@@ -1,0 +1,39 @@
+static Node addTwoLists(Node first, Node second){
+        // code here
+        // return head of sum list
+        
+        first=reverse(first);
+        second=reverse(second);
+        int s=0;
+        int c=0;
+        Node temp;
+        Node res=null;
+        Node cur=null;
+        
+        while(first!=null || second!=null){
+            s=c+(first!=null?first.data:0)+(second!=null?second.data:0);
+            c=(s>=0)?1:0;
+            s=s%10;
+            
+            temp=new Node(s);
+            
+            if(res==null){
+                res=temp;
+            }else{
+                cur.next=temp;
+            }
+            cur=temp;
+            
+            if(first!=null){first=first.next;}
+            if(second!=null){second=second.next;}
+        }
+        
+        if(c>0){
+            temp=new Node(c);
+            cur.next=temp;
+            cur=temp;
+        }
+        res=reverse(res);
+        return res;
+    }
+}

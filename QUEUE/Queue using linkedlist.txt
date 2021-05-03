@@ -1,0 +1,119 @@
+1)Queue using linkedlist
+public class Queue{
+    
+    //instancs variables 0f queue 
+    private Node front;
+    private Node rear;
+    private int len;
+    
+    //queue class constructor
+    public Queue(){
+        this.front=null;
+        this.rear=null;
+        this.len=0;
+    }
+    
+   //inner class Node  
+    public class Node{
+        private Node next;
+        private int data;
+        
+      //constructor of Node class  
+        public Node(int data){
+           this.data=data;
+           this.next=null;
+           
+        }
+    }
+    
+    //enqueue method
+    public void enqueue(int data){
+        Node temp=new Node(data);
+        if(isEmpty()){
+            front=temp;
+        }else{
+            rear.next=temp;
+        }
+        rear=temp;
+        len++;
+    }
+    //dequeue method
+    public int dequeue(){
+        if(isEmpty()){
+            System.out.println("queue is empty");
+        }
+        int result=front.data;
+        front=front.next;
+        
+        if(front==null){
+            rear=null;
+        }
+        
+        len--;
+        return result;
+    }
+    
+    
+    //check if queue is empty
+    public boolean isEmpty(){
+        
+        return (len==0);
+    }
+    
+    //print first element
+    public int first(){
+        if(!isEmpty()){
+        return (front.data);
+        }else{
+            // System.out.println("no first....queue is empty");
+            return -1;
+        }
+    }
+    //print last element 
+    public int last(){
+       if(!isEmpty()){
+        return (rear.data);
+        }else{
+            //System.out.println("no last....queue is empty");
+            return -1;
+        }
+    }
+    
+    //prinr queue 
+    public void display(){
+        Node current=front;
+        while(current!=null){
+            System.out.print(current.data +"-->");
+            current=current.next;
+        }
+        System.out.print("null");
+         System.out.println();
+        
+    }
+    
+    //driver code
+    
+    public static void main(String [] args){
+        Queue q=new Queue();
+        System.out.println(q.last()==-1?"queue is empty":"The last element is " +q.last());
+        System.out.println(q.first()==-1?"queue is empty":"The first element is " +q.first());
+         System.out.println();
+         
+        for(int i=5;i<=100;i=i+5){
+            q.enqueue(i);
+        }
+         System.out.println("After enqueue:");
+        q.display();
+        int i=5;
+        while(i>0){
+         q.dequeue();
+        i--;
+        }
+         System.out.println();
+         System.out.println("After dequeue:");
+        q.display();
+         System.out.println();
+        System.out.println(q.last()==-1?"queue is empty":"The last element is " +q.last());
+        System.out.println(q.first()==-1?"queue is empty":"The first element is " +q.first());
+    }
+}

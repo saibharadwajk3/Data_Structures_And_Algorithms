@@ -1,0 +1,34 @@
+//recursive in-order traversal of a binary tree
+public void inOrder(TreeNode root ){
+    
+    if(root==null){
+        return;
+    }
+    
+    inOrder(root.left);
+    System.out.print(root.data + " ");
+    inOrder(root.right);
+}
+
+//iterative in order traversal of a binary tree
+public void IterativeinOrder(TreeNode root ){
+    System.out.println();
+    System.out.println("iterative in-order:");
+    if(root==null){
+        return;
+    }
+  Stack<TreeNode> st=new Stack<TreeNode>();
+      
+    TreeNode temp=root;
+    
+    while(!st.isEmpty() || temp!=null){
+        if(temp!=null){
+            st.push(temp);
+            temp=temp.left;
+        }else{
+            temp=st.pop();
+            System.out.print(temp.data+" ");
+            temp=temp.right;
+        }
+    }
+}

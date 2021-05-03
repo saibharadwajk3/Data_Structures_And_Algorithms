@@ -1,0 +1,21 @@
+public void RemoveAtKey(int key,Node head){
+      
+      Node current=head;
+      Node temp=null;
+      if(current!=null && current.data==key){
+          head=current.next;
+          return;
+      }
+      
+      while(current!=null && current.data!=key){
+          
+          temp=current;
+          current=current.next;
+      }
+      
+      
+      temp.next=current.next;
+      
+      
+      
+  }  

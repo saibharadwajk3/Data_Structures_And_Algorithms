@@ -1,0 +1,137 @@
+13)formatting using printf
+
+ a)single argument
+public class MyClass {
+    public static void main(String args[]) {
+     
+      System.out.printf("%d\n" ,10);//prints decimal value as is
+      System.out.printf("%f\n" ,10.5 );//prints floating point value as is
+      System.out.printf("%c\n" , 'a');//prints character value as is in lowercase
+      System.out.printf("%C\n" ,'a' );//prints character value as is in uppercase
+      System.out.printf("%s\n" ,"hello" );//prints string value as is in lowercase
+      System.out.printf("%S\n" ,"hello"  );//prints string value as is in uppercase
+      System.out.printf("%b\n" , 5<3);//prints boolean value in lowercase
+      System.out.printf("%B\n" , 3>1);//prints boolean value in uppercase
+      System.out.printf("%b\n" , null);//prints default false
+      System.out.printf("%b\n" , "sai");//prints default true
+      System.out.printf("%e\n" , 10.123);//prints scientific value
+      System.out.printf("%E\n" , 10.123);//prints scientific value in uppercase
+      System.out.printf("%g\n" , 10000.0);//if < 10 power 4 prints as is
+      System.out.printf("%g\n" , 1000000.0);//if > 10 power 4 prints scienific value
+      System.out.printf("%o\n" ,11);//prints octal(base 8) of number.
+      System.out.printf("%x\n" , 12);//prints hex value of number
+      System.out.printf("%X\n" , 12);//prints hex value of number in upper case
+      System.out.printf("%h\n" , "bharadwaj");//prints hash code
+      System.out.printf("%H\n" , "bharadwaj");//prints hash code in uppercase
+      System.out.printf("%a\n" , 10.12);//prints hex code for floating point
+      System.out.printf("%A\n" , 10.12);//prints hex code for floating point in upper case
+      System.out.printf("\n");//next line
+      System.out.printf("%n");//next line
+      System.out.printf("90%%");//prints %
+    }
+}
+
+b)Multiple arguments
+public class MyClass {
+    public static void main(String args[]) {
+     
+      
+      System.out.printf("%d %d %d\n",10,20,30);//prints with space
+      System.out.printf("did you know,%d%c %s\n\n\n",87,'%',"of statistics are all meade up");//prints with space
+      
+      
+      String name="sally";
+      int age=21;
+      double gpa=8.81;
+      
+       System.out.printf("Name:%s\nAge:%d\nGPA:%f\n",name,age,gpa);//prints with space
+    }
+}
+
+c)printf for formatting
+
+%[argument number][flags][width][.presision][type]
+printf("%1,5.2f%2,5.d",199.99,304)
+
+
+public class MyClass {
+    public static void main(String args[]) {
+        
+        double num=12.5745956;
+     
+       System.out.printf("%f\n\n",10.33);//by default precision is 6
+      System.out.printf("%.0f\n",num);
+      System.out.printf("%.1f\n",num);
+      System.out.printf("%.2f\n",num);
+      System.out.printf("%.3f\n",num);
+      System.out.printf("%.4f\n",num);
+      System.out.printf("%.5f\n",num);
+      System.out.printf("%.6f\n",num);
+      System.out.printf("%.7f\n",num);
+      System.out.printf("%.8f\n",num);
+    }
+}
+
+d)formatting things other than floating points
+public class MyClass {
+    public static void main(String args[]) {
+        
+        String str="hello";
+        int num=15;
+        char let='A';
+      System.out.printf("%.2s\n",str);
+      System.out.printf("%.3b\n",true);
+      System.out.printf("%.2h\n",str);
+      System.out.printf("%.3d\n",num);//error
+      System.out.printf("%.2c\n",let);//error
+      System.out.printf("%.3n\n",num);//error
+    }
+}
+
+e)width and justify(flag)
+public class MyClass {
+    public static void main(String args[]) {
+      
+      System.out.printf("%-6s%5d\n","num=",456);//total 6+5 11 spaces .- indicates left justify string takes first 4(as string we passed if 4 char) and num takes last 3 spaces.
+      
+    }
+}
+
+f)flags
+public class MyClass {
+    public static void main(String args[]) {
+      
+      System.out.printf("%-6s%5d\n","num=",456);//total 6+5 11 spaces .- indicates left justify string takes first 4(as string we passed if 4 char) and num takes last 3 spaces.
+      System.out.printf("%+d\n",123);//adds + before numbers ,ignores if there is - sign
+        System.out.printf("%+d\n",-123);
+          System.out.printf("%,-+10d\n",12453);//adds(,),left justifies(-),adds(+)
+ System.out.printf("%, d\n",12453);//space flag add space if value is positive
+          System.out.printf("%,d\n",-12453);//space flag ignores space if value is negetive
+        //   System.out.printf("%, +d\n",12453);//cnt combine space and + flag
+          System.out.printf("%,010d\n",12453);//0 flags adds 0 before number but it has to be combined with width flag(10-6=4 zeros)
+
+//comma flag
+System.out.printf("%,d\n",12453);//comma flag
+           System.out.printf("%,15d\n",12453);//comma flag with width
+         
+          System.out.printf("%,015d\n",12453);//comma flag with width an 0 flag
+          
+    }
+}
+
+//parantheses flag
+   System.out.printf("%(015d\n",-12453);//open parantheses works only with negetive number to convert grom - to +
+         
+//
+g)arguments
+public class MyClass {
+    public static void main(String args[]) {
+      
+      System.out.printf("%1$s\n","1","2","3");//prints first argument
+          System.out.printf("%1$s %2$s\n","1","2","3");//prints first and second args with space
+        System.out.printf("%3$s %2$s %3$s %3$s %1$s\n",c);
+        System.out.printf("%3$s %<s\n","1","2","3");//prints what was printed earlier
+        
+         
+          
+}}

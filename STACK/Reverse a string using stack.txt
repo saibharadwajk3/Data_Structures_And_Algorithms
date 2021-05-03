@@ -1,0 +1,67 @@
+1)reverse a string
+public class stack{
+        
+     private Node top;
+     private int length;
+     
+     public stack(){
+         top=null;
+         length=0;
+     }
+     
+    public class Node{
+        
+        private char data;
+        private Node next;
+        
+       public Node(char data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    
+    public void push(char data){
+        Node temp=new Node(data);
+        temp.next=top;
+        top=temp;
+        length++;
+    }
+
+   public boolean isEmpty(){
+       return length==0;
+   }
+   public int Length(){
+       return length;
+   }
+   
+   //pop function in stack
+   
+   public char pop(){
+       char result=top.data;
+       top=top.next;
+       length--;
+       
+       return result;
+   }
+
+
+public String reverse(String s){
+    char[] chars=s.toCharArray();
+    
+    for(char c:chars){
+        push(c);
+    }
+    
+    for(int i=0;i<s.length();i++){
+        chars[i]=pop();
+    }
+    return new String(chars);
+}
+        
+ public static void main(String[] args){
+     
+     stack stk=new stack();
+     System.out.println(stk.reverse("push up"));
+     
+        }
+    }

@@ -1,0 +1,62 @@
+16)Date,time and calender
+
+date and simple date formatter
+    import java.text.ParseException;  
+    import java.text.SimpleDateFormat;  
+    import java.util.Date;  
+    import java.util.Locale;  
+    public class SimpleDateFormatExample2 {  
+    public static void main(String[] args) {  
+        Date date = new Date();  
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");  
+        String strDate = formatter.format(date);  
+        System.out.println("Date Format with MM/dd/yyyy : "+strDate);  
+      
+        formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");  
+        strDate = formatter.format(date);  
+        System.out.println("Date Format with dd-M-yyyy hh:mm:ss : "+strDate);  
+      
+        formatter = new SimpleDateFormat("dd MMMM yyyy");  
+        strDate = formatter.format(date);  
+        System.out.println("Date Format with dd MMMM yyyy : "+strDate);  
+      
+        formatter = new SimpleDateFormat("dd MMMM yyyy zzzz");  
+        strDate = formatter.format(date);  
+        System.out.println("Date Format with dd MMMM yyyy zzzz : "+strDate);  
+      
+        formatter = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");  
+        strDate = formatter.format(date);  
+        System.out.println("Date Format with E, dd MMM yyyy HH:mm:ss z : "+strDate);  
+    }  
+    }  
+
+b)calendar
+    import java.util.Calendar;  
+    public class CalendarExample1 {  
+       public static void main(String[] args) {  
+       Calendar c= Calendar.getInstance();  
+       //get current date and time
+       System.out.println("The current date is : " + c.getTime()); 
+       
+      //get specific attributes
+       System.out.println("The current year is : " + c.get(Calendar.YEAR)); 
+        System.out.println("The current month is : " + c.get(Calendar.DATE)); 
+       
+       //get maximun days of week and max week of year
+   System.out.println("Maximum number of days in week: " + c.getMaximum(Calendar.DAY_OF_WEEK));  
+  System.out.println("Maximum number of weeks in year: " +c.getMaximum(Calendar.WEEK_OF_YEAR));  
+       
+       
+     
+       
+       
+      calendar.add(Calendar.DATE, -15);  
+      System.out.println("15 days ago: " + calendar.getTime());  
+      calendar.add(Calendar.MONTH, 4);  
+      System.out.println("4 months later: " + calendar.getTime());  
+      calendar.add(Calendar.YEAR, -200);  
+      System.out.println("200 years ago: " + calendar.getTime());  
+      
+      
+       }  
+    }  

@@ -1,0 +1,82 @@
+3)last node  first
+public class SinglyLinkedList {
+    
+    //declare head and tail which are initialized to null autometically;
+     public  Node head;
+    
+       //Node class(blue print to create node)
+     
+     class Node{
+         
+         int data;
+         Node next;
+       //Node constructor 
+         public Node(int data){
+             this.data=data;
+             this.next=null;
+         }
+     }
+     
+     public void display(Node head){
+        
+        if(head==null){
+            System.out.println("empty list");
+        }
+        
+        Node current=head;
+        while(current!=null){
+            System.out.print(current.data + "-->");
+            current=current.next;
+        }
+        System.out.println("null");
+    }
+     
+     public void createloopInLinkedList(){
+         Node first=new Node(1);
+         Node second=new Node(2);
+         Node third=new Node(3);
+         Node fourth=new Node(4);
+         Node fifth=new Node(5);
+         Node sixth=new Node(6);
+         
+         head=first;
+         first.next=second;
+         second.next=third;
+         third.next=fourth;
+         fourth.next=fifth;
+         fifth.next=sixth;
+         return;
+     }
+     
+     public Node LastToFirst(Node head){
+         
+         Node current=head;
+         Node prev=null;
+         while(current.next!=null){
+             prev=current;
+             current=current.next;
+             
+         }
+         prev.next=null;
+         current.next=head;
+         head=current;
+         
+         return head;
+         
+         
+     }
+     
+     public static void main(String args[]) {
+      
+      SinglyLinkedList s=new SinglyLinkedList();
+      s.createloopInLinkedList();
+     s.display(s.head);
+     
+     
+    Node newhead= s.LastToFirst(s.head);
+    s.head=newhead;
+      s.display(s.head);
+     
+     }     
+     
+}

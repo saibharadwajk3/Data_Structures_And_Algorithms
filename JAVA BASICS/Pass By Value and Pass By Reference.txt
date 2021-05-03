@@ -1,0 +1,3 @@
+8)Pass by value (simply primitives that we pass from one method to other.no change in data at caller side as copy is the cony thing that is sent).
+
+9)pass by reference(objects are passed by reference .when passed address location is sent.changes to calle side affect objects at caller side)

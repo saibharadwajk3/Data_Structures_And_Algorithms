@@ -1,0 +1,72 @@
+2)Max Heap with recursion and heap sort
+public class Build{
+    
+    
+  public void heapify(int arr[],int n,int i){
+      
+      int largest=i;//index of root node
+      int L=2*i+1;//its left child
+      int R=2*i+2;//its right child
+      
+      //child should be in bound with size of array if not then it is null.
+      //if left child ig grater than root set largest to left index
+      if(L<n && arr[L]>arr[largest]){
+          largest=L;
+      }
+      //if rightt child ig grater than root set largest to right index
+      if(R<n && arr[R]>arr[largest]){
+          largest=R;
+      }
+      
+      //this condition is true when the node and children are already in corrrect order.ie follow heap property.yhen no swap.
+      if(i!=largest){
+    //if not in order swap them
+          int swap=arr[i];
+          arr[i]=arr[largest];
+          arr[largest]=swap;
+    //swaping may disturb the child nodes.so recursively again heapify then.   
+          heapify(arr,n,largest);
+      }
+  }
+  
+   public void buildheap(int arr[],int n){
+       
+       //to find the last root node.we heapify from bottom to top.leaves already follow heap property;
+      int startindex=(n/2)-1;
+      
+      //start to heapify from last root node to first root node;
+       for(int i=startindex;i>=0;i--){
+           heapify(arr,n,i);
+       }
+       
+       print(arr);
+       System.out.println();
+       
+       for (int i = n - 1; i > 0; i--) {
+            // Move current root to end
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+            // call max heapify on the reduced heap
+           heapify(arr, i, 0);
+        }
+   } 
+    
+    public void print(int[] arr){
+        for(int i:arr){
+            System.out.print(i+ " ");
+        }
+    }
+    
+    public static void main(String [] args){
+        
+        Build hp=new Build();
+        
+       int arr[] = { 1, 3, 5, 4, 6, 13, 10, 
+                      9, 8, 15, 17 };
+        int n=arr.length;
+        
+        hp.buildheap(arr,n);
+        hp.print(arr);
+    }
+}

@@ -1,0 +1,34 @@
+in order sucessor
+ 
+    
+    public TreeNode FindMin(TreeNode root){
+        if(root==null) return null;
+        while(root.left!=null){
+            root=root.left;
+        }
+        return root;
+    }
+    
+    public TreeNode InorederSuccssor(TreeNode root,int data){
+        TreeNode current=Search(root,data);
+        
+        if(current==null){return null;}
+        
+        if(current.right!=null){//root has right sub tree
+            return FindMin(current.right);
+        }else{//no right sub tree
+        
+          TreeNode successor=null;
+          TreeNode ancestor=root;
+          
+          while(ancestor!=current){
+              if(current.data<ancestor.data){
+                  successor=ancestor;
+                  ancestor=ancestor.left;
+              }else{
+                  ancestor=ancestor.right;
+              }
+          }
+            return successor;
+        }
+    }

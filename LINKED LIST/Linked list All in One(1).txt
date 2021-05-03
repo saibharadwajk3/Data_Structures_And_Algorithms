@@ -1,0 +1,260 @@
+1)create,display,find length,insert at beggining and end,insert at given position,del first and last node,del from fixed pos,remove perticular key,reverse linked list..
+
+ans)public class SinglyLinkedList {
+    
+    //declare head and tail which are initialized to null autometically;
+     public  Node head;
+     public  Node tail;
+     
+     //Node class(blue print to create node)
+     
+     class Node{
+         
+         int data;
+         Node next;
+    //Node constructor 
+         public Node(int data){
+             this.data=data;
+             this.next=null;
+         }
+     }
+     
+    //Node creation 
+     public void createNode(int data){
+         
+         Node newnode=new Node(data);
+         
+         if(head==null){
+             head=newnode;
+             tail=newnode;
+         }else{
+             tail.next=newnode;
+             tail=newnode;
+         }
+     }
+    //display method 
+    public void display(Node head){
+        
+        if(head==null){
+            System.out.println("empty list");
+        }
+        
+        Node current=head;
+        while(current!=null){
+            System.out.print(current.data + "-->");
+            current=current.next;
+        }
+        System.out.println("null");
+    }
+    
+    //reverse linked list
+    
+    public  Node reverse(Node head){
+        Node current=head;
+        Node next=null;
+        Node previous=null;
+        
+        while(current!=null){
+            
+            next=current.next;
+            current.next=previous;
+            previous=current;
+            current=next;
+        }
+        return previous;
+    }
+    
+    //Find Length
+    
+    public int length(Node head){
+        
+        Node current= head;
+        int count =0;
+        while(current!=null){
+            count++;
+            current=current.next;
+        }
+        
+        return count;
+    }
+    
+    //insert at beginnig
+    
+    public void InsertAtBeggining(int data){
+         Node newnode=new Node(data);
+         
+         newnode.next=head;
+         head=newnode;
+    }
+    
+    //insert at end
+    
+    public void InsertAtEnd(int data){
+         Node newnode=new Node(data);
+         
+         tail.next=newnode;
+         tail=newnode;
+    }
+    
+    //Insert at given position
+    
+    public void InsrtAtPos(int pos,int data, Node head){
+        Node newnode=new Node(data);
+        
+        if(pos==1){
+            newnode.next=head;
+            head=newnode;
+        }else{
+           
+           Node previous=head;
+           int count=1;
+           while(count<pos-1){
+               previous=previous.next;
+               count++;
+           }
+           
+           newnode.next=previous.next;
+           previous.next=newnode;
+            
+        }
+    }
+    
+    //delete first node
+    public Node DelFirst(Node head){
+        
+        if(head==null){
+             return null;
+        }
+        
+        Node temp=head;`
+     head=head.next;
+     temp.next=null;
+     System.out.println("Deleted first node is " + temp.data);
+           
+        return head;
+        
+    }
+    
+    //delete last node
+    public Node Dellast(Node head){
+        
+     if(head==null || head.next==null){
+         return head;
+     }
+     
+     Node current =head;
+     Node previous=null;
+     
+     while(current.next!=null){
+         previous=current;
+          current=current.next;
+     }
+     
+     
+     previous.next=null;
+     System.out.println("Deleted last node is " + current.data);
+     return previous;
+    }
+    
+    
+    //delete from fixed
+    
+    public void DelFix(int pos,Node head){
+        
+        if(pos==1){
+            head=head.next;
+        }else{
+            
+            Node prev=head;
+            int count=1;
+            while(count<pos-1){
+                prev=prev.next;
+                count++;
+            }
+            
+            Node curr=prev.next;
+            prev.next=curr.next;
+        }
+        
+    }
+    
+  public void RemoveAtKey(int key,Node head){
+      
+      Node current=head;
+      Node temp=null;
+      if(current!=null && current.data==key){
+          head=current.next;
+          return;
+      }
+      
+      while(current!=null && current.data!=key){
+          
+          temp=current;
+          current=current.next;
+      }
+      
+      
+      temp.next=current.next;
+      
+      
+      
+  }  
+    
+    public static void main(String args[]) {
+      
+      SinglyLinkedList s=new SinglyLinkedList();
+      
+      //call method on s object to create node
+      s.createNode(1);
+      s.createNode(2);
+      s.createNode(3);
+      s.createNode(4);
+      s.createNode(5);
+      //call display method to display node;
+       s.display(s.head);
+      
+      //call length to find length
+      int len=s.length(s.head);
+      System.out.println("length=" +len);
+      
+      //insert at beggining
+      s.InsertAtBeggining(0);
+       s.display(s.head);
+       
+        //insert at end
+      s.InsertAtEnd(6);
+       s.display(s.head);
+       
+       //insert at given pos
+       
+       s.InsrtAtPos(3,69,s.head);
+       s.display(s.head);
+       
+    // delete first node
+     Node newhead=s.DelFirst(s.head);
+      s.display(newhead);
+      s.head=newhead;
+       
+      
+    //delete last node
+   Node newtail=s.Dellast(s.head);
+     s.tail=newtail;
+    s.display(s.head);
+    
+    //del form fixed pos
+    
+    s.DelFix(2,s.head);
+    s.display(s.head);
+    
+    //remove perticular key
+   s.RemoveAtKey(3,s.head);
+    s.display(s.head);
+    
+
+      //call reverse
+      Node rev=s.reverse(s.head);
+      s.display(rev);
+      
+      
+    }
+}

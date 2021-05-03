@@ -1,0 +1,20 @@
+fill and to string
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+    int[] myarray=new int[5];
+    
+    Arrays.fill(myarray,5);
+    
+    System.out.println(Arrays.toString(myarray));
+    
+    //fill with indexs
+    
+    int[] myarray1=new int[8];
+    
+    Arrays.fill(myarray1,1,4,33);//fills index 1,2,3 1.e end value-1
+      System.out.println(Arrays.toString(myarray1));
+    
+    
+    }
+}

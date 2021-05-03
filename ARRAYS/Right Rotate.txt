@@ -1,0 +1,30 @@
+6)right rotate
+public class MyClass {
+    public static void main(String args[]) {
+     
+      int [] arr={1,2,3,4};
+      
+   int n=2;
+  for(int i = 0; i < n; i++){    
+            int j, last;  
+            
+            //Stores the last element of array    
+            last = arr[arr.length-1];    
+            
+            for(j = arr.length-1; j > 0; j--){    
+                //Shift element of array by one    
+                arr[j] = arr[j-1];    
+            }    
+            //Last element of array will be added to the start of array.    
+            arr[0] = last;    
+        }    
+        
+ 
+ for(int j : arr){
+     
+     System.out.print(j+" ");
+ }
+      
+      
+    }
+}

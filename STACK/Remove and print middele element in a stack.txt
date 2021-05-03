@@ -1,0 +1,109 @@
+public class stack{
+        
+     private Node top;
+     private Node bottom;
+     private int length;
+     
+     public stack(){
+         top=null;
+         bottom=null;
+         length=0;
+     }
+     
+    public class Node{
+        
+        private int data;
+        private Node next;
+        private Node previous;
+        
+       public Node(int data){
+            this.data=data;
+            this.next=null;
+            this.previous=null;
+        }
+    }
+    
+    public void push(int data){
+        Node temp=new Node(data);
+       
+       if(isEmpty()){
+           bottom=temp;
+       }else{
+           top.previous=temp;
+       }
+       temp.next=top;
+       top=temp;
+       length++;
+    }
+
+   public boolean isEmpty(){
+       return length==0;
+   }
+   public int Length(){
+       return length;
+   }
+   
+   //pop function in stack
+   
+   public int pop(){
+       int result=top.data;
+       top=top.next;
+       length--;
+       
+       return result;
+   }
+
+//remove middele
+
+public int middle(Node head)
+    {
+        Node slow_ptr = head;
+        Node fast_ptr = head;
+        if (head != null)
+        {
+            while (fast_ptr != null && fast_ptr.next != null)
+            {
+                fast_ptr = fast_ptr.next.next;
+                slow_ptr = slow_ptr.next;
+            }
+                                
+            slow_ptr.previous.next= slow_ptr.next;
+            
+            slow_ptr.next=null;
+            
+            
+        }
+        return slow_ptr.data;
+    }
+
+public void display(Node top){
+        
+        if(top==null){
+            System.out.println("empty list");
+        }
+        
+        Node current=top;
+        while(current!=null){
+            System.out.print(current.data + " ");
+            current=current.next;
+        }
+    System.out.println();
+    }     
+        
+ public static void main(String[] args){
+     
+     stack s=new stack();
+     s.push(8);
+     s.push(24);
+     s.push(53);
+     s.push(84);
+     s.push(59);
+     s.push(16);
+     s.push(67);
+   
+    
+     s.display(s.top);
+   System.out.println("The middele element is " +s.middle(s.top));
+     s.display(s.top);
+        }
+    }

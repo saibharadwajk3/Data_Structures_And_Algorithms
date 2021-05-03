@@ -1,0 +1,27 @@
+1)LINEAR SEARCH
+simply searching every element o array to find targer.
+2)BINARY SEARCH
+public class MyClass {
+    public static void main(String args[]) {
+      int [] arr={5,10,25,20,25,20,35,40,45};
+      
+      int key=40;
+      int low=0;
+      int high=8;
+      
+      
+      while(low<=high){
+          int mid=low+((high-low)/2);
+          
+          if(key==arr[mid]) System.out.println(mid);
+          
+          if(key<arr[mid]){
+             high=mid-1;
+          }else{
+               low=mid+1; 
+          }
+          
+      }
+      
+    }
+}

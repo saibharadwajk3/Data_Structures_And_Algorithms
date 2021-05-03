@@ -1,0 +1,28 @@
+flatten a binary tree to linked list
+class Solution {
+    public void flatten(TreeNode root) {
+        
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> st=new Stack<>();
+        
+        st.push(root);
+        
+        while(!st.isEmpty()){
+            
+            TreeNode temp=st.pop();
+            
+            if(temp.right!=null){
+                st.push(temp.right);
+            }
+            
+             if(temp.left!=null){
+                st.push(temp.left);
+            }
+            
+            if(!st.isEmpty()){
+                temp.right=st.peek();
+            }
+            temp.left=null;
+        }

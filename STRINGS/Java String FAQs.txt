@@ -1,0 +1,348 @@
+Java String FAQs
+
+
+1)Write a java program to capitalize each word in string?
+public class StringFormatter {  
+public static String capitalizeWord(String str){  
+   String[] words=str.split("\\s");
+    String output="";
+    for(String w:words){
+        String first=w.substring(0,1);
+        String Afterfirst=w.substring(1);
+        
+         output+=first.toUpperCase()+Afterfirst+" ";
+    }
+    return output.trim();
+}  
+public static void main(String[] args){
+    System.out.println( capitalizeWord("this is destiny"));
+}
+} 
+
+
+
+
+2)Write a java program to reverse each word in string?
+public class StringFormatter {  
+public static String capitalizeWord(String str){  
+   String[] words=str.split("\\s");
+    String output="";
+    for(String w:words){
+        StringBuffer sb=new StringBuffer(w);
+       
+        
+         output+=sb.reverse().toString()+" ";
+    }
+    return output.trim();
+}  
+public static void main(String[] args){
+    System.out.println( capitalizeWord("this is destiny"));
+}
+} 
+
+
+
+
+3)Write a java program to tOGGLE each word in string?
+public class StringFormatter {  
+public static String ToggleWord(String str){  
+  String[] words=str.split("\\s");
+    String output="";
+    for(String w:words){
+        String first=w.substring(0,1);
+        String Afterfirst=w.substring(1);
+         output+=first+Afterfirst.toUpperCase()+" ";
+    }
+    return output.trim();
+}  
+
+public static void main(String[] args){
+    System.out.println( ToggleWord("this is destiny"));
+}
+} 
+
+
+
+
+
+4)What is the difference between String and StringBuffer in java?
+
+String class is immutable.	StringBuffer class is mutable.
+	String is slow and consumes more memory when you concat too many strings because every time it creates new instance.	StringBuffer is fast and consumes less memory when you cancat strings.
+	String class overrides the equals() method of Object class. So you can compare the contents of two strings by equals() method.	StringBuffer class doesn't override the equals() method of Object class.
+
+
+
+
+5)What is the difference between StringBuffer and StringBuilder in java?
+
+StringBuffer is synchronized i.e. thread safe. It means two threads can't call the methods of StringBuffer simultaneously.	StringBuilder is non-synchronized i.e. not thread safe. It means two threads can call the methods of StringBuilder simultaneously.
+	StringBuffer is less efficient than StringBuilder.	StringBuilder is more efficient than StringBuffer.
+String Handling quiz-1
+
+
+
+
+6)What does intern() method in java?
+
+The java string intern() method returns the interned string. It returns the canonical representation of string.
+
+It can be used to return string from memory, if it is created by new keyword. It creates exact copy of heap string object in string constant pool.
+done
+
+    public class InternExample2 {  
+        public static void main(String[] args) {          
+            String s1 = "Javatpoint";  
+            String s2 = s1.intern();  
+            String s3 = new String("Javatpoint");  
+            String s4 = s3.intern();          
+            System.out.println(s1==s2); // True  
+            System.out.println(s1==s3); // False  
+            System.out.println(s1==s4); // True       
+            System.out.println(s2==s3); // False  
+            System.out.println(s2==s4); // True        
+            System.out.println(s3==s4); // False          
+        }  
+    } 
+
+
+
+
+ 
+7)How to convert String to int in java?
+    //Java Program to demonstrate the conversion of String into Integer  
+    //using Integer.valueOf() method  
+    public class StringToIntegerExample2{  
+    public static void main(String args[]){  
+    //Declaring a string  
+    String s="200";  
+    //converting String into Integer using Integer.valueOf() method  
+    Integer i=Integer.valueOf(s);  
+    
+    int i1=Integer.parseInt(s); 
+    System.out.println(i1); 
+    System.out.println(i);  
+    }}
+
+
+
+  
+8)How to convert int to String in java?
+String s=String.valueOf(i);  
+String s=Integer.toString(i);  
+String s=String.format("%d",i);  
+
+
+
+
+9) How to convert String to Date in java?
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
+public class StringToDateExample1 {  
+public static void main(String[] args)throws Exception {  
+    String sDate1="31/12/1998";  
+    Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);  
+    System.out.println(sDate1+"\t"+date1);  
+}  
+}
+
+
+
+
+
+10)anegrams
+    
+  1)  public class Anegram
+    {  
+    public static void main(String args[]){  
+     String str1="School master";
+     String str2="The classroom";
+    
+    String s1=str1.toLowerCase();
+     String s2=str2.toLowerCase();
+  int sum1=0;
+  int sum2=0;
+    for(int i=0; i<s1.length(); i++)
+    {
+      int asciiValue = s1.charAt(i);
+      sum1 = sum1+ asciiValue;
+    }
+    for(int i=0; i<s2.length(); i++)
+    {
+      int asciiValue = s2.charAt(i);
+      sum2 = sum2+ asciiValue;
+    }
+    if(sum1==sum2){
+     System.out.println("The given strings:"+ str1 +","  +str2 + " are anegrams.");
+    }
+    }}  
+
+
+2)import java.util.Arrays;
+import java.util.*;
+
+public class Anegrams{
+    
+    static void checkAnegrams(String str1 ,String str2){
+        String s1=str1.replaceAll("\\s","");
+        String s2=str2.replaceAll("\\s","");
+     
+    //  System.out.println(s1);
+    //  System.out.println(s2);
+     
+     boolean status=true;
+     if(s1.length()!=s2.length()){
+          status=false;
+     }else{
+        
+         char[] ArrayS1 = s1.toLowerCase().toCharArray();  
+            char[] ArrayS2 = s2.toLowerCase().toCharArray();  
+            Arrays.sort(ArrayS1);  
+            Arrays.sort(ArrayS2);  
+            status = Arrays.equals(ArrayS1, ArrayS2);  
+        
+     }
+     
+     if(status){
+         System.out.println(str1 + " and " + str2 + " are anegrams. ");
+         
+     }else{
+         
+         System.out.println(str1 + " and " + str2 + " are not anegrams. ");
+     }
+    
+    }
+    
+    public static void main(String[] args){
+        
+        //  checkAnegrams("Mother In Law", "Hitler Woman");
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter 1st string:");
+        String st1=sc.nextLine();
+        
+        System.out.println("Enter 2nd string:");
+        String st2=sc.nextLine();
+        
+        checkAnegrams(st1,st2);
+        sc.close();
+    }
+}
+
+
+
+
+
+11)Java program to find the percentage of uppercase, lowercase, digits and special characters in a String
+my code:
+import java.util.Arrays;
+import java.util.*;
+
+public class UpperLowerSpecialDigitFinder{
+    
+    
+    public static void main(String[] args){
+        
+        String str="SaiBharadwaj.k3@gmail.com";
+        String s=str.replaceAll("\\s","");
+        String specialChars = "/*!@#$%^&*()\"{}_[]|\\?/<>,.";
+        
+        char[] arr=s.toCharArray();
+        
+    int uppercase=0;
+    int lowercase=0;
+     int digit=0;
+     int total=0;  
+     int specialcase=0;
+   
+        for(int i=0;i<arr.length;i++){
+            
+            total=arr.length;
+           if(Character.isUpperCase(arr[i])){
+               uppercase=uppercase+1;
+           }else if(Character.isLowerCase(arr[i])){
+               lowercase=lowercase+1;
+           }else if(Character.isDigit(arr[i])){
+               digit=digit+1;
+          }else {
+            int cint = (int)(arr[i]);
+             if(cint <48 || (cint > 57 && cint < 65) || (cint > 90 && cint < 97) || cint > 122)
+              {
+         specialcase=specialcase+1;
+          }
+         }
+        }
+        // System.out.println(total);
+        System.out.println("Uppercase are:" + ((100*uppercase)/total)+ "%");
+        System.out.println("lower case are:" + ((100*lowercase)/total)+ "%");
+        System.out.println("digits are:" + ((100*digit)/total)+ "%");
+        System.out.println("special characters are:" + ((100*specialcase)/total)+ "%");
+        
+        
+    }
+}
+
+import java.util.Arrays;
+import java.util.*;
+
+public class UpperLowerSpecialDigitFinder{
+    
+    
+    public static void main(String[] args){
+        String str="SaiBharadwaj.k3@gmail.com";
+        String s=str.replaceAll("\\s","");
+        
+    int uppercase=0;
+    int lowercase=0;
+     int digit=0;
+     int total= s.length();  
+     int specialcase=0;
+   
+        for(int i=0;i<s.length();i++){
+            
+             char ch = s.charAt(i);
+           if(Character.isUpperCase(ch)){
+               uppercase++;
+           }else if(Character.isLowerCase(ch)){
+               lowercase++;
+           }else if(Character.isDigit(ch)){
+               digit++;
+          }else {
+         specialcase++;
+          }
+         }
+        
+        System.out.println(total);
+        System.out.println("Uppercase are:" + ((100*uppercase)/total)+ "%");
+        System.out.println("lower case are:" + ((100*lowercase)/total)+ "%");
+        System.out.println("digits are:" + ((100*digit)/total)+ "%");
+        System.out.println("special characters are:" + ((100*specialcase)/total)+ "%");
+        
+    }
+}
+
+
+
+
+
+
+12)words in a string
+import java.util.*;
+
+public class Learn {
+
+
+    public static void main(String args[]) {
+   StringTokenizer tokens = new StringTokenizer("    India Is My Country");
+    int result=tokens.countTokens();
+    System.out.println(result);
+    while(tokens.hasMoreTokens()){
+        System.out.println(tokens.nextToken());
+    }
+    
+        
+        
+    }
+}
+

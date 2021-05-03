@@ -1,0 +1,52 @@
+implement stack using queue
+
+costy push
+int pop()
+    {
+        if(q1.isEmpty()){
+        return -1;
+        }
+	    return q1.poll();
+    }
+	
+    /* The method push to push element into the stack */
+    void push(int a)
+    {
+	    // Your code here
+	    while(!q1.isEmpty()){
+        q2.add(q1.poll());
+         }
+         q1.add(a);
+       while(!q2.isEmpty()){
+        q1.add(q2.poll());
+    }
+}
+costly pop
+int pop()
+    {
+	    // Your code here
+	    int x=-1;
+if(q1.isEmpty())
+return x;
+else{
+while(!q1.isEmpty())
+{
+x=q1.poll();
+if(!q1.isEmpty())
+q2.add(x);
+}
+while(!q2.isEmpty())
+q1.add(q2.poll());
+return x;
+
+}
+    }
+	
+    /* The method push to push element into the stack */
+    void push(int a)
+    {
+	    // Your cod
+	    q1.add(a); 
+	    
+    }
+}

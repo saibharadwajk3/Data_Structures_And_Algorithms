@@ -1,0 +1,30 @@
+3)left rotation of array
+public class MyClass {
+    public static void main(String args[]) {
+     
+      int [] ar1={1,2,3,4,5};
+      int n=4;
+      
+      for(int i=0;i<n;i++){
+          
+          int first,j;
+          
+          first=ar1[0];
+          
+          for(j=0;j<ar1.length-1;j++){
+              
+              ar1[j]=ar1[j+1];
+          }
+          ar1[j]=first;
+          
+         
+      }
+      
+      
+      System.out.println("Array after left rotation: ");  
+        for(int i = 0; i< ar1.length; i++){  
+            System.out.print(ar1[i] + " ");
+        }
+      
+    }
+}

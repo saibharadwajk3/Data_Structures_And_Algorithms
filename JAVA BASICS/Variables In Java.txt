@@ -1,0 +1,5 @@
+4)Variables in java
+
+ a)Local variable(declared and initilized inside a method)
+ b)Instance variable(declared inside a class(related to objects))
+ c)Static variable(declared inside a class with key word static(related to class no object is involved)

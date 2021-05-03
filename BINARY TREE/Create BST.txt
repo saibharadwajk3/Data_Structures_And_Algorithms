@@ -1,0 +1,52 @@
+public class BinarySearchTree{
+   //instance variable 
+private TreeNode root;
+  
+  
+//inner class  for TreeNode creation (blue print)  
+private class TreeNode{
+    //instance variables 
+    private TreeNode left;
+    private TreeNode right;
+    private int data;
+    //constructor 
+    TreeNode(int data){
+      this.data=data;  
+    }
+}
+
+//create BST
+
+public void CreateTree(int value){
+    root=CreateTree(root,value);
+}
+public TreeNode CreateTree(TreeNode root,int value){
+    
+    if(root==null){
+        
+        root= new TreeNode(value);
+        return root;
+    }
+    
+    if(value<root.data){
+        root.left=CreateTree(root.left,value);
+    }else{
+        root.right=CreateTree(root.right,value);
+    }
+    
+    return root;
+}
+
+public static void main(String [] args){
+    
+    BinarySearchTree bst=new BinarySearchTree();
+    bst.CreateTree(8);
+    bst.CreateTree(3);
+    bst.CreateTree(10);
+    bst.CreateTree(1);
+    bst.CreateTree(6);
+    bst.CreateTree(14);
+    bst.CreateTree(4);
+    bst.CreateTree(7);
+}
+}

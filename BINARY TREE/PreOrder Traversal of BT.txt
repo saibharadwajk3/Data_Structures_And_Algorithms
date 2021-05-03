@@ -1,0 +1,38 @@
+public void PreOrder(TreeNode root ){
+    
+    if(root==null){
+        return;
+    }
+    System.out.print(root.data + " ");
+    PreOrder(root.left);
+    PreOrder(root.right);
+}
+
+
+
+//iterative pre order traversal of a binary tree
+
+public void IterativePreOrder(TreeNode root){
+    if(root==null){
+        return;
+    }
+    System.out.println();
+    System.out.println("Iterative pre-order:");
+  
+    Stack<TreeNode> st=new Stack<TreeNode>();
+    
+    st.push(root);
+    while(!st.isEmpty()){
+        TreeNode temp=st.pop();
+        System.out.print(temp.data +" ");
+        if(temp.right!=null){
+             st.push(temp.right);
+         }
+         
+         if(temp.left!=null){
+             st.push(temp.left);
+         }
+         
+         
+    }
+}

@@ -1,0 +1,17 @@
+public int MaxOfBinaryTree(TreeNode root){
+    
+    if(root==null){
+        return Integer.MIN_VALUE;
+    }
+    
+  int result=root.data;
+   
+  int left=MaxOfBinaryTree(root.left);
+  int right=MaxOfBinaryTree(root.right);
+   
+  if(left>result){result=left;}
+  if(right>result){result=right;}
+   
+    return result;
+    
+}

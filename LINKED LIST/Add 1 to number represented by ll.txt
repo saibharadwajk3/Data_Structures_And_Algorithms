@@ -1,0 +1,44 @@
+Add 1 to number represented by ll
+public static Node reverse(Node head) 
+    // this function reverses the linked list
+    {
+        Node prev = null;
+        Node current = head;
+        Node next;
+        
+        while (current != null) 
+        { 
+            next = current.next;     // storing next node
+            current.next = prev;     // linking current node to previous
+            prev = current;           // updating prev
+            current = next;           // updating current
+        }
+        
+        return prev; 
+    } 
+    public static Node addOne(Node head) 
+    { 
+      head=reverse(head);
+   //   boolean f=true;
+      Node cur=head;
+      
+      while(cur!=null){
+          if(cur.next==null && cur.data==9){
+              cur.data=1;
+              Node temp=new Node(0);
+              temp.next=head;
+              head=temp;
+              cur=cur.next;
+          }else if(cur.data==9){
+              cur.data=0;
+              cur=cur.next;
+          }else{
+              cur.data=cur.data+1;
+              cur=cur.next;
+              break;
+          }
+      }
+      head=reverse(head);
+      return head;
+    }
+}

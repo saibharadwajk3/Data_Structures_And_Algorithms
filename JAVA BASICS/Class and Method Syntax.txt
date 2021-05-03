@@ -1,0 +1,29 @@
+1)Class and method syntax
+
+public class Linear_Search{  
+    public static int search(int array[] , int num){            
+        int n = array.length;
+        
+        for(int i=0;i<n;i++){
+            
+            if(array[i]==num){
+                return i;
+            }
+            
+        }
+        return -1;
+    }   
+    public static void main(String[] args){   
+        int arry[]={50,60,30,10,20,77,66};
+        int x=10;
+        
+        int result=search(arry,x);
+        
+        
+        if(result==-1){
+            System.out.println("Element not found");
+        }else{
+            System.out.println("Element  found at index"+" "+ result);
+        }    
+    }
+}

@@ -1,0 +1,32 @@
+inorder predecessor
+public TreeNode FindMax(TreeNode root){
+        if(root==null) return null;
+        while(root.right!=null){
+            root=root.right;
+        }
+        return root;
+    }
+    
+    public TreeNode InorederPredecessor(TreeNode root,int data){
+        TreeNode current=Search(root,data);
+        
+        if(current==null){return null;}
+        
+        if(current.left!=null){//root has right sub tree
+            return FindMax(current.left);
+        }else{//no right sub tree
+        
+          TreeNode predecessor=null;
+          TreeNode ancestor=root;
+          
+          while(ancestor!=current){
+              if(current.data<ancestor.data){
+                  predecessor=ancestor;
+                  ancestor=ancestor.right;
+              }else{
+                  ancestor=ancestor.left;
+              }
+          }
+            return predecessor;
+        }
+    }

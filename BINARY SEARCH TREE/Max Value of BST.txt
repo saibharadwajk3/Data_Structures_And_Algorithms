@@ -1,0 +1,14 @@
+max value is
+public void maxValue(TreeNode node)
+    {
+        if(node==null){
+            return ;
+        }
+        
+        if(node.right==null){
+            System.out.println("maximum value is " + node.data);
+        }else{
+            maxValue(node.right);
+            
+        }
+    }

@@ -1,0 +1,16 @@
+//search BST
+public TreeNode Search(TreeNode root,int key){
+    
+    if(root==null || root.data==key){
+        
+        return root;
+    }
+    
+    if(key<root.data){
+        return Search(root.left,key);
+    }else{
+        return Search(root.right,key);
+    }
+    
+
+}

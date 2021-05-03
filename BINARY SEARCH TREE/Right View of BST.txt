@@ -1,0 +1,15 @@
+//right view
+int maxlevel2=-1;
+public void rightView(TreeNode root,int level){
+    if(root==null)
+    return;
+    
+    if(maxlevel2<level){
+        System.out.print(root.data+" ");
+        maxlevel2=level;
+    }
+    
+    rightView(root.right,level+1);
+    rightView(root.left,level+1);
+    
+}

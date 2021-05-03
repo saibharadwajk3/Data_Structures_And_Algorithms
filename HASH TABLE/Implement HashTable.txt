@@ -1,0 +1,126 @@
+import java.util.*;
+public class HashTable {
+    
+    private HashNode[] buckets;
+    private int numOfbuckets;
+    private int size;
+    
+    public HashTable(){
+       // this(capacity: 10);//deault capacity
+    }
+    
+    public HashTable(int capacity){
+        this.numOfbuckets=capacity;
+        buckets= new HashNode[capacity];
+        this.size=0;
+    }
+    
+    
+    private class HashNode{
+        
+      private Integer key;
+        private String value;
+       private HashNode next;
+        
+        public HashNode(Integer key,String value){
+            this.key=key;
+            this.value=value;
+        }
+    }
+    
+    public int getBI(Integer key){
+        return key%buckets.length;
+    }
+    
+    public int size(){
+        return size;
+    }
+    
+    public boolean isEmpty(){
+        return size==0;
+    }
+    
+    //add key values
+    
+    public void put(Integer key,String value){
+        
+        int BI=getBI(key);
+        HashNode head=buckets[BI];
+        
+        while(head!=null){
+            
+            if(head.key.equals(key)){
+                head.value=value;
+                return;
+            }
+            head=head.next;
+        }
+        size++;
+        
+        head=buckets[BI];
+        HashNode node=new HashNode(key,value);
+        node.next=head;//  imagin there is already one node that array bucket is refering.we make hesd point to that node.then we create node           
+        buckets[BI]=node;      //node.next points to head (current element) ,then bucket points to new node(insertion at beginning)                 
+                                                 
+    }
+    
+    
+    //public get value
+    
+    public String get(Integer key){
+        int BI=getBI(key);
+        HashNode head=buckets[BI];
+        
+        while(head!=null){
+            if(head.key.equals(key)){
+                return head.value;
+            }
+            head=head.next;
+        }
+        return null;
+    }
+    
+    //remove
+     public String remove(Integer key){
+         int BI=getBI(key);
+         HashNode head=buckets[BI];
+         HashNode previous=null;
+         
+         while(head!=null){
+             if(head.key.equals(key)){
+                break;
+            }
+            previous=head;
+            head=head.next;
+         }
+        
+        
+        if(head==null){return null;}
+        
+        size--;
+        
+        if(previous!=null){
+            previous.next=head.next;
+        }else{
+            buckets[BI]=head.next;
+        }
+        return head.value;
+    }
+    
+    public static void main(String args[]) {
+        HashTable table=new HashTable(10);
+        table.put(105,"TOM");
+         table.put(21,"SANA");
+          table.put(15,"RAM");
+          
+          System.out.println(table.size());
+        
+        String s=table.remove(15);
+        
+        System.out.println(table.size());
+        
+         System.out.println(table.get(105));
+         System.out.println(table.size());
+     
+    }
+}

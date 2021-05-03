@@ -1,0 +1,15 @@
+//delete first node
+    public Node DelFirst(Node head){
+        
+        if(head==null){
+             return null;
+        }
+        
+        Node temp=head;`
+     head=head.next;
+     temp.next=null;
+     System.out.println("Deleted first node is " + temp.data);
+           
+        return head;
+        
+    }

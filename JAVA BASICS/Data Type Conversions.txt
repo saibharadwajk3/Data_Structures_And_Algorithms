@@ -1,0 +1,46 @@
+15)conversions
+
+a)float,int double
+public class MyClass {
+    public static void main(String args[]) {
+        
+        float converted=123.456;//gives error because value is actually double.even though it looks like float system is trying narrowing from double to float.so it gives error.
+        float converted=123.456f;
+        
+        long num1=2147483647;//largest number an int can store
+        long num2=2147483648;//even though it can fit into long techniclly it will give error because it is treated by system as int
+        long num3=2147483648L;//so add L to specify it as long
+        System.out.println(num1);
+        System.out.println(num2);
+        System.out.println(num3);
+    
+     System.out.println(converted);
+    
+    }}
+
+b)concanination vs addition
+public class MyClass {
+    public static void main(String args[]) {
+        
+        char first='j';
+        char second='b';
+        char third='d';
+        System.out.println(""+first+second+third);//checks lest and right foe string if it finds it concatinates otherwise it adds
+         System.out.println(8+2+"hello"+8+2);
+         System.out.println(8+2+"hello"+(8+2));
+         
+         char ek='A'+5;
+          char dho='B'+6;
+           char theen='C'+6;
+           System.out.println(ek);
+           
+           System.out.println(ek+dho+theen);//adds
+           System.out.println(""+ek+dho+theen);//concatinates
+           
+           
+           char chick='A'+6;
+           System.out.println(chick);
+         
+        
+    
+    }}

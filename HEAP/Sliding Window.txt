@@ -1,0 +1,51 @@
+sliding window
+import java.util.*; 
+import java.lang.*;
+import java.io.*;
+public class GFG
+{
+public static void main (String[] args)
+{
+        int N =7;
+        int k =3;
+        int[] a = {12, 1, 78, 90, 57, 89, 56};
+        
+           
+       // int max = Integer.MIN_VALUE;
+        StringBuffer result = new StringBuffer();
+        
+        Deque<Integer> deque = new LinkedList<>();
+        int i;
+        for( i=0; i<k; i++){
+            while((!deque.isEmpty()) && a[i]>=a[deque.peekLast()]){//if current elem is grater remove front and add rear
+                deque.removeLast();
+            }
+            deque.addLast(i);
+        }
+        System.out.println(i);
+        
+        
+        for(;i<N; i++){
+            
+            result.append(a[deque.peekFirst()] + " ");
+            
+            while((!deque.isEmpty()) && deque.peek()<=i-k){//to remove index out of sliding window
+               
+                int x=deque.removeFirst();
+              
+            }
+            
+            while(!deque.isEmpty() && a[i]>=a[deque.peekLast()]){
+               int y= deque.removeLast();
+                 System.out.println("line 39 " + y);
+            }
+            
+            deque.addLast(i);
+        }
+        result.append(a[deque.peekFirst()] + " ");
+        System.out.println(result);
+    
+    
+ }
+
+}

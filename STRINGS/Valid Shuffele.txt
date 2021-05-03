@@ -1,0 +1,42 @@
+2)valid shuffele
+public class ValidShuffle{
+    static boolean CheckValidity(String s1,String s2, String shfl){
+        if(s1.length()+s2.length()!=shfl.length()){
+            return false;
+        }
+            
+            int i=0,j=0,k=0;
+            
+            while(k!=shfl.length()){
+                if(i<s1.length()&&s1.charAt(i)==shfl.charAt(k)){
+                    i++;
+                }else if(j<s2.length()&&s2.charAt(j)==shfl.charAt(k)){
+                    j++;
+                }else{
+                    return false;
+                }
+               k++;
+                
+            }
+            
+              if(i < s1.length() || j < s2.length()) {
+      return false;
+    }
+            
+        return true;
+        
+    }
+    
+    public static void main(String[]args){
+        
+        String s1="XYZ";
+        String s2="123";
+        String shfl="XY12Z3";
+        if(CheckValidity(s1,s2,shfl)){
+            System.out.println("valid shuffle");
+        }else{
+             System.out.println("invalid shuffle");
+        }
+    }
+    
+}

@@ -1,0 +1,46 @@
+Methods of String class
+public class MyClass {
+    public static void main(String args[]) {
+        
+        //upper and lower case
+     String s1="Bharadwaj";
+     System.out.println(s1.toUpperCase());
+     System.out.println(s1.toLowerCase());
+     
+     //trim
+     String s="  galante   ";
+     System.out.println(s.trim());
+     
+     
+     //starts and ends with
+     System.out.println(s1.startsWith("Bh"));
+     System.out.println(s1.endsWith("ja"));
+     
+     //chat at
+     System.out.println(s1.charAt(0));
+     System.out.println(s1.charAt(4));
+     
+     //length
+     System.out.println(s1.length());
+     
+     
+     //intern
+     String s2=s1.intern();  
+      System.out.println(s2);
+     
+     //valueOf converts numbers intostring
+     
+     int a=20;  
+     String s3=String.valueOf(a); 
+     System.out.println(s3+30);//Sachin  
+     
+     //replace
+     String s4="Java is a programming language. Java is a platform. Java is an Island.";    
+    String replaceString=s4.replace("Java","larva");//replaces all occurrences of "Java" to "Kava"    
+    System.out.println(replaceString);   
+    
+     
+     
+     
+    }
+}

@@ -1,0 +1,39 @@
+10) Methods
+
+    a)Methods in Java
+    b)Parameter Passing Techniques in Java with Examples
+    c)Returning Multiple values in Java
+    d)Different ways of Method Overloading in Java
+    e)Scope of Variables In Java
+
+11)Constructors
+  
+    a)Constructors in Java
+    b)Copy Constructor in Java
+    c)Constructor Overloading in Java
+    d)Constructor Chaining In Java with Examples
+    e)Private Constructors and Singleton Classes in Java
+12)Static key word in java
+
+   a)static variable
+
+     static String University="Vit"(common for all students.objects share single static variable)
+   b)static method
+
+     method that which do not depend on i.v.so no object.it is related to class.called using class.
+   
+
+    class Math(){
+static round(){
+
+//code to round values
+
+}
+
+
+}
+    Math.round(20.666)
+
+public static void main(String [] args){}
+
+do not need any object to  call the nmethod

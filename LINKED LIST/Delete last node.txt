@@ -1,0 +1,21 @@
+//delete last node
+    public Node Dellast(Node head){
+        
+     if(head==null || head.next==null){
+         return head;
+     }
+     
+     Node current =head;
+     Node previous=null;
+     
+     while(current.next!=null){
+         previous=current;
+          current=current.next;
+     }
+     
+     
+     previous.next=null;
+     System.out.println("Deleted last node is " + current.data);
+     return previous;
+    }
+    

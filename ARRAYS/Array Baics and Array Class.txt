@@ -1,0 +1,19 @@
+array baics and ARRAY CLSSS
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+    int[] myarray={1,40,33,89,69,33};
+    
+    Arrays.sort(myarray);
+    
+    System.out.println(myarray);
+    
+    for(int i:myarray)
+    System.out.println(i);
+     System.out.println();
+      System.out.println(Arrays.binarySearch(myarray,69));//returns index of 69 in array if 69 is found
+      
+        System.out.println(Arrays.binarySearch(myarray,2));//returns negetive value of possible inssertion index +1
+                                                           //in the above array for 2 possible insertion index is 1 .so returns -(1+1)=>-2;
+    }
+}

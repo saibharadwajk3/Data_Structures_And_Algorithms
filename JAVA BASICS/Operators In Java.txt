@@ -1,0 +1,70 @@
+5)Operators in java
+
+    Arithmetic Operators: They are used to perform simple arithmetic operations on primitive data types. 
+        * : Multiplication
+        / : Division
+        % : Modulo
+        + : Addition
+        – : Subtraction
+    Unary Operators: Unary operators need only one operand. They are used to increment, decrement or negate a value. 
+        – :Unary minus, used for negating the values.
+        + :Unary plus, used for giving positive values. Only used when deliberately converting a negative value to positive.
+        ++ :Increment operator, used for incrementing the value by 1. There are two varieties of increment operator. 
+            Post-Increment : Value is first used for computing the result and then incremented.
+            Pre-Increment : Value is incremented first and then result is computed.
+        — : Decrement operator, used for decrementing the value by 1. There are two varieties of decrement operator. 
+            Post-decrement : Value is first used for computing the result and then decremented.
+            Pre-Decrement : Value is decremented first and then result is computed.
+        ! : Logical not operator, used for inverting a boolean value.
+    Assignment Operator : ‘=’ Assignment operator is used to assign a value to any variable. It has a right to left associativity, i.e value given on right hand side of operator is assigned to the variable on the left and therefore right hand side value must be declared before using it or should be a constant. 
+    General format of assignment operator is, 
+     
+
+variable = value;
+
+    In many cases assignment operator can be combined with other operators to build a shorter version of statement called Compound Statement. For example, instead of a = a+5, we can write a += 5. 
+        +=, for adding left operand with right operand and then assigning it to variable on the left.
+        -=, for subtracting left operand with right operand and then assigning it to variable on the left.
+        *=, for multiplying left operand with right operand and then assigning it to variable on the left.
+        /=, for dividing left operand with right operand and then assigning it to variable on the left.
+        %=, for assigning modulo of left operand with right operand and then assigning it to variable on the left.
+    Relational Operators : These operators are used to check for relations like equality, greater than, less than. They return boolean result after the comparison and are extensively used in looping statements as well as conditional if else statements. General format is, 
+     
+
+variable relation_operator value
+
+    Some of the relational operators are- 
+        ==, Equal to : returns true if left hand side is equal to right hand side.
+        !=, Not Equal to : returns true if left hand side is not equal to right hand side.
+        <, less than : returns true if left hand side is less than right hand side.
+        <=, less than or equal to : returns true if left hand side is less than or equal to right hand side.
+        >, Greater than : returns true if left hand side is greater than right hand side.
+        >=, Greater than or equal to: returns true if left hand side is greater than or equal to right hand side.
+    Logical Operators : These operators are used to perform “logical AND” and “logical OR” operation, i.e. the function similar to AND gate and OR gate in digital electronics. One thing to keep in mind is the second condition is not evaluated if the first one is false, i.e. it has a short-circuiting effect. Used extensively to test for several conditions for making a decision. 
+    Conditional operators are-
+        &&, Logical AND : returns true when both conditions are true.
+        ||, Logical OR : returns true if at least one condition is true.
+    Ternary operator : Ternary operator is a shorthand version of if-else statement. It has three operands and hence the name ternary. General format is- 
+     
+
+condition ? if true : if false
+
+The above statement means that if the condition evaluates to true, then execute the statements after the ‘?’ else execute the statements after the ‘:’. 
+ 
+
+
+    Bitwise Operators : These operators are used to perform manipulation of individual bits of a number. They can be used with any of the integer types. They are used when performing update and query operations of Binary indexed tree. 
+        &, Bitwise AND operator: returns bit by bit AND of input values.
+        |, Bitwise OR operator: returns bit by bit OR of input values.
+        ^, Bitwise XOR operator: returns bit by bit XOR of input values.
+        ~, Bitwise Complement Operator: This is a unary operator which returns the one’s compliment representation of the input value, i.e. with all bits inversed.
+    Shift Operators : These operators are used to shift the bits of a number left or right thereby multiplying or dividing the number by two respectively. They can be used when we have to multiply or divide a number by two. General format- 
+     
+
+ number shift_op number_of_places_to_shift;
+
+        <<, Left shift operator: shifts the bits of the number to the left and fills 0 on voids left as a result. Similar effect as of multiplying the number with some power of two.
+        >>, Signed Right shift operator: shifts the bits of the number to the right and fills 0 on voids left as a result. The leftmost bit depends on the sign of initial number. Similar effect as of dividing the number with some power of two.
+        >>>, Unsigned Right shift operator: shifts the bits of the number to the right and fills 0 on voids left as a result. The leftmost bit is set to 0.
+    instance of operator : Instance of operator is used for type checking. It can be used to test if an object is an instance of a class, a subclass or an interface. General format- 
+

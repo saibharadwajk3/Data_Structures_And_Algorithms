@@ -1,0 +1,24 @@
+//Insert at given position
+    
+    public void InsrtAtPos(int pos,int data, Node head){
+        Node newnode=new Node(data);
+        
+        if(pos==1){
+            newnode.next=head;
+            head=newnode;
+        }else{
+           
+           Node previous=head;
+           int count=1;
+           while(count<pos-1){
+               previous=previous.next;
+               count++;
+           }
+           
+           newnode.next=previous.next;
+           previous.next=newnode;
+            
+        }
+    }
+
+//NOTE:We assume that position passed in not negetive and not out of range

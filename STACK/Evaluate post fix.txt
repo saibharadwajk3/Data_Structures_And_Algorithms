@@ -1,0 +1,34 @@
+evaluate post fix
+ class Solution{
+     public static int operate(char c,int a,int b){
+         
+        int res=0;
+        if(c=='+'){
+          res= a+b ; 
+        }else if(c=='-'){
+            res= a-b;
+        }else if(c=='/'){
+            res= a/b ;
+        }else if(c=='*'){
+            res= a*b;
+        }
+        return res;
+    }
+    public static int evaluatePostFix(String S){
+       int len=S.length();
+        char[] ch=S.toCharArray();
+       Stack<Integer> stk= new Stack<>();
+        for(int i=0;i<len;i++){
+          if(ch[i]!='*'&&ch[i]!='/'&&ch[i]!='+'&&ch[i]!='-'){
+            stk.push(ch[i]- '0');
+        }else{
+            int b=stk.pop();
+            int a=stk.pop();
+            int res=operate(ch[i],a,b);
+            stk.push(res);
+        }
+    }
+  int ans=stk.peek();
+  return ans;
+    }
+}

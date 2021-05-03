@@ -1,0 +1,25 @@
+check if binary tree is heap
+class GfG
+{
+    /*You are required to complete this method */
+    boolean isHeap(Node tree)
+    {
+	  if(tree==null || (tree.left==null && tree.right==null)){
+            return true;
+        }
+        int L=0;
+        int R=0;
+        
+        if(tree.left!=null){
+            L=tree.left.data;
+        }
+        
+        if(tree.right!=null){
+            L=tree.right.data;
+        }
+        
+        if(tree.data>L && tree.data>R && isHeap(tree.left) && isHeap(tree.right))
+          return true;
+          return false;
+    }
+}

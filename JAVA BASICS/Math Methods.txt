@@ -1,0 +1,115 @@
+a)max and min methods
+public class MyClass {
+    public static void main(String args[]) {
+        
+        //math class methods are overloaded say a max method will have same name but its overloaded to taks say doubles,floating points,decimals etc..
+        
+      
+      int num1=Math.max(100,40);
+      int num2=Math.min(100,40);
+      
+      //for three values
+    //   int num1=Math.max(100,40,1000);//gives error
+        int num3=Math.max(Math.max(100,40),1000);
+      
+      System.out.println(num1);
+      System.out.println(num2);
+       System.out.println(num3);
+          
+}}
+
+b)floor ,ceil and round
+public class MyClass {
+    public static void main(String args[]) {
+        
+        //floor method
+        
+        System.out.println(Math.floor(10.1));
+        System.out.println(Math.floor(10.6));
+        System.out.println(Math.floor(10.9)+ "\n");
+        
+        //ceil method
+        System.out.println(Math.ceil(10.1));
+        System.out.println(Math.ceil(10.6));
+        System.out.println(Math.ceil(10.9)+ "\n");
+        
+        //ceil and flooe returns double you need to type cast ro make it an int
+        
+        
+        int num1=(int)Math.ceil(10.1);
+        
+         System.out.println(num1+ "\n");
+         
+         //round method returne long
+         
+         System.out.println(Math.round(10.1));
+        System.out.println(Math.round(10.499999));
+        System.out.println(Math.round(10.5));
+        System.out.println(Math.round(10.9)+ "\n");
+        
+        
+        //with negetive numbers it happens opposit
+        System.out.println(Math.floor(-10.1));
+        System.out.println(Math.ceil(-10.1));
+        System.out.println(Math.round(-10.5));      
+}}
+
+
+c)Random method
+
+public class MyClass {
+    public static void main(String args[]) {
+        
+        //math random
+        
+        System.out.println(Math.random());//returns numbers between 0 and 1 excluding 0 and 1
+         System.out.println(Math.random()*10);
+          System.out.println((int) Math.random()*10);//returns zero always because first it type casts random number betwwn 0 and 1 which is 0 and then multiplies with 10 which is still 0
+         System.out.println((int) (Math.random()*10));//dosent return from 1-10 but from 0-9
+}}
+
+
+//range in Math.random
+
+public class MyClass {
+    public static void main(String args[]) {
+        
+        
+        // //writing code line and finding range given a min number
+        System.out.println((int)(Math.random()*10)+5);//lower bound plus upper bound minus 1
+        //                                               //range is 0+5=5 and 10+5=15-1=14 i.e range[5-14]
+         
+        // //writing code line for a given range
+        
+         System.out.println((int)(Math.random()*100)+10);//range[10-109] upper bound minus lower bound +1 i.e 109-10=99+1=100
+        //                                                 //gives in range 10-109
+                                                        
+         System.out.println((char)((int)(Math.random()*26)+65)); //26+65=91=>91-1=90=> range[65-90]
+                 
+    }}
+
+d)others
+public class MyClass {
+    public static void main(String args[]) {
+        
+        //takes in double(though we pass int or long) and returns double
+        System.out.println(Math.sqrt(16));
+        
+        //abs takes in int/double and returns the  same
+        System.out.println(Math.abs(-12.890));
+        
+        //pow takes in double and returns double
+        System.out.println(Math.pow(6,5));
+        
+        //max and min
+        
+        System.out.println(Math.max(50,49));
+        System.out.println(Math.min(50,49));
+        
+        
+     //PI AND E(attributes)
+     
+     System.out.println(Math.PI);
+     System.out.println(Math.E);//eular number i.e base of natural logarithm
+        
+    }}

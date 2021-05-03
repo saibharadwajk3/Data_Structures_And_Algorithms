@@ -1,0 +1,25 @@
+2)Java Program to find the frequency of each element in the array
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+      int [] arr={10,20,20,20,20,10,1,7,1,1,1,7,3,3};
+      int n=arr.length;
+      boolean[] check=new boolean[n];
+      Arrays.fill(check,false);
+      
+      for(int i=0;i<n;i++){
+          if(check[i]==true)
+              continue;
+          int count=1;
+          
+      for(int j=i+1;j<n;j++){
+          
+          if(arr[i]==arr[j]){
+              count++;
+              check[j]=true;
+          }
+      }
+       System.out.println(arr[i] + " is repeated " + count +" times ");
+      }
+    }
+}

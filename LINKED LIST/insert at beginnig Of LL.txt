@@ -1,0 +1,17 @@
+//insert at beginnig
+    
+    public void InsertAtBeggining(int data){
+         Node newnode=new Node(data);
+         
+         newnode.next=head;
+         head=newnode;
+    }
+    
+    //insert at end
+    
+    public void InsertAtEnd(int data){
+         Node newnode=new Node(data);
+         
+         tail.next=newnode;
+         tail=newnode;
+    }

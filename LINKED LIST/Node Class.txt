@@ -1,0 +1,21 @@
+public class SinglyLinkedList {
+    
+    //declare head and tail which are initialized to null autometically;
+     public  Node head;
+     public  Node tail;
+     
+     //Node class(blue print to create node)
+     
+     class Node{
+         
+         int data;
+         Node next;
+    //Node constructor 
+         public Node(int data){
+             this.data=data;
+             this.next=null;
+         }
+     }
+public static void main(String [] args){
+}
+}

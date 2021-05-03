@@ -1,0 +1,26 @@
+2)reading user input
+
+import java.util.*;
+public class Get_User_Input{
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        
+        
+        System.out.print("Enter a string:");
+        String s=sc.nextLine();
+        
+        System.out.print("Enter a integer:");
+        int i=sc.nextInt();
+        
+        System.out.print("Enter a character:");
+        char c=sc.next().charAt(0);
+        
+        System.out.print("Enter a float:");
+        float f=sc.nextFloat();
+        
+        System.out.println("you have entered string"+" " + s);
+        System.out.println("you have entered int"+" " + i);
+         System.out.println("you have entered char"+" " + c);
+        System.out.println("you have entered float"+" " + f);
+    }
+}

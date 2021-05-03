@@ -1,0 +1,21 @@
+What is String 
+Immutable String
+String Comparison
+public class MyClass {
+    public static void main(String args[]) {
+     String s1="sachin";
+     String s2="sachin";
+     
+     String s3=new String("sachin");
+     String s4="bharadwaj";
+     
+     
+     System.out.println(s1==s2);//compares 2 references
+     System.out.println(s1==s3);
+     System.out.println(s1.equals(s3));//compares values of two strings
+     System.out.println(s1.compareTo(s2));//compares lexical value of string
+     System.out.println(s1.compareTo(s4));//s-b=>19-2=17.
+     System.out.println(s4.compareTo(s2));
+      
+    }
+}

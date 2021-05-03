@@ -1,0 +1,8 @@
+Substring
+public class MyClass {
+    public static void main(String args[]) {
+     String s1="arjunbharadwaj";
+     System.out.println(s1.substring(0,5));//starting number is inclusive ending number is exclusive
+     System.out.println(s1.substring(5));
+    }
+}

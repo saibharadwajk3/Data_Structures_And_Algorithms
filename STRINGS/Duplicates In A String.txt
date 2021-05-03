@@ -1,0 +1,22 @@
+1)duplicates in a string
+public class DuplicateCounter{
+    static void fillArray(String str,int[]count){
+        for(int i=0;i<str.length();i++){
+            count[str.charAt(i)]++;
+        }
+    }
+    static void findDuplicate(String str){
+        int count[] = new int[256];
+         fillArray(str,count);
+         for(int i=0;i<256;i++){
+             if(count[i]>1){
+                 System.out.println((char)(i) + " is repeated:" + count[i] + " times");
+             }
+         }
+    }
+    public static void main(String[] args){
+        
+        String str="mccullum";
+        findDuplicate(str);
+    }
+}

@@ -1,0 +1,70 @@
+4)MERG SORT
+
+import java.util.*;
+public class MyMergeSort  
+{  
+void merge(int LeftArray[], int RightArray[],int arr[])  
+{  
+ 
+int nl =  LeftArray.length; 
+int nr = RightArray.length;  
+  
+int i = 0, j = 0;  
+int k = 0;  
+while (i<nl&&j<nr)  
+{  
+if (LeftArray[i] < RightArray[j])  
+arr[k++] = LeftArray[i++];  
+else  
+arr[k++] = RightArray[j++];  
+}  
+ 
+ 
+while (i<nl)  
+arr[k++] = LeftArray[i++];  
+ 
+while (j<nr)  
+arr[k++] = RightArray[j++];  
+
+}  
+
+
+  
+void sort(int arr[])  
+{  
+int n=arr.length;
+if (n<2)  
+  return;  
+
+
+int mid = n/2;  
+int LeftArray[] = new int [mid];  
+int RightArray[] = new int [n-mid];  
+  
+for (int i=0; i<mid; i++)  
+LeftArray[i] = arr[i];  
+ 
+for (int i=mid; i<n;i++)  
+RightArray[i-mid] = arr[i];
+
+sort(LeftArray);  
+sort(RightArray);  
+merge(LeftArray, RightArray,arr);  
+
+}  
+
+
+
+public static void main(String args[])  
+{  
+int arr[] = {90,23,101,45,65,23,67,89,34,23};  
+MyMergeSort ob = new MyMergeSort();  
+ob.sort(arr);  
+  
+System.out.println("\nSorted array");  
+
+for(int i =0; i<arr.length;i++) 
+    System.out.print(arr[i]+" ");  
+ 
+}  
+}

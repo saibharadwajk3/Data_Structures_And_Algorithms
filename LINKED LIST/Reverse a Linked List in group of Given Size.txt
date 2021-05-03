@@ -1,0 +1,60 @@
+Reverse a Linked List in group of Given Size. [Very Imp]
+ public static Node reverse(Node node, int k)
+    {
+        Node current=node;
+        Node next=null;
+        Node previous=null;
+        int count=0;
+        
+        while(count<k && current!=null){
+            next=current.next;
+            current.next=previous;
+            previous=current;
+            current=next;
+            count++;
+        }
+        
+        if(next!=null){
+            node.next=reverse(next,k);
+        }
+        return previous;
+        
+       
+    }
+Remove Duplicates in a sorted Linked List.
+ Node removeDuplicates(Node head)
+    {
+	Node current=head;
+	while(current!=null && current.next!=null){
+	    if(current.data==current.next.data){
+	        current.next=current.next.next;
+	    }else{
+	        current=current.next;
+	    }
+	}
+	 return head;
+	
+    }
+Remove Duplicates in a Un-sorted Linked List.
+public Node removeDuplicates(Node head) 
+    {
+        HashSet<Integer> hs = new HashSet<>();
+
+Node current=head;
+Node prev=null;
+
+while(current!=null){
+    int currval=current.data;
+    
+    if(hs.contains(currval)){
+        prev.next=current.next;
+    }else{
+        hs.add(currval);
+        prev=current;
+        
+    }
+    current=current.next;
+}
+
+return head;
+}
